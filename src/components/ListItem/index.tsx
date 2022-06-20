@@ -10,7 +10,7 @@ type ListItemProps = {
 }
 
 export function ListItem({ text, isChecked, id }: ListItemProps){
-  const { removeItemFromList, markItemAsChecked } = useListContext()
+  const { removeItemFromList, markItemAsChecked, editItemFromList } = useListContext()
 
   return(
     <C.Article>
@@ -26,6 +26,7 @@ export function ListItem({ text, isChecked, id }: ListItemProps){
           </C.CheckButton>
           <C.EditButton 
             type="button"
+            onClick={editItemFromList}
             isChecked={isChecked}
           >
             <FaEdit />

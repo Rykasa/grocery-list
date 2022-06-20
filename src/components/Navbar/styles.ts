@@ -9,7 +9,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavbarCenter = styled.div`
-  width: 95vw;
+  width: 90vw;
   margin: auto;
   display: flex;
   align-items: center;

@@ -3,10 +3,12 @@ import { ItemType } from "../types/ItemType";
 
 type ListContextData = {
   list: ItemType[];
-  error: Error
+  error: Error;
+  isModalOpen: boolean;
   addItemToList: (text: string, isChecked?: boolean) => void
   removeItemFromList: (id: number) => void
   markItemAsChecked: (item: ItemType, id: number) => void
+  editItemFromList: () => void
 }
 
 type ListContextProviderProps = {
@@ -24,6 +26,7 @@ export const ListContext = createContext({} as ListContextData)
 export function ListContextProvider({children}: ListContextProviderProps){
   const [list, setList] = useState<ItemType[]>([])
   const [error, setError] = useState<Error>({ message: '', isvisible: false, hadError: false })
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   function addItemToList(text: string, isChecked?: boolean){
     if(text.trim() !== ''){
@@ -61,6 +64,10 @@ export function ListContextProvider({children}: ListContextProviderProps){
     setList(newList)
   }
 
+  function editItemFromList(){
+    setIsModalOpen(true)
+  }
+
 
   useEffect(() =>{
     const timeout = setTimeout(() =>{
@@ -75,7 +82,9 @@ export function ListContextProvider({children}: ListContextProviderProps){
       addItemToList,
       error,
       removeItemFromList,
-      markItemAsChecked
+      markItemAsChecked,
+      editItemFromList,
+      isModalOpen
     }}>
       { children }
     </ListContext.Provider>

@@ -3,10 +3,11 @@ import { FaPlus } from 'react-icons/fa'
 import { useListContext } from '../../hooks/useListContext'
 import { Error } from '../Error'
 import { ListItem } from '../ListItem'
+import { Modal } from '../Modal'
 import * as C from './styles'
 
 export function List(){
-  const { list, addItemToList, error } = useListContext()
+  const { list, addItemToList, error, isModalOpen } = useListContext()
   const [text, setText] = useState('')
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) =>{
@@ -42,6 +43,7 @@ export function List(){
           })}
         </C.ListWrap>
       </C.SectionCenter>
+      { isModalOpen && <Modal /> }
     </C.Section>
   )
 }
