@@ -5,6 +5,8 @@ type ListContextData = {
   list: ItemType[];
   error: Error
   addItemToList: (text: string, isChecked?: boolean) => void
+  removeItemFromList: (id: number) => void
+  markItemAsChecked: (item: ItemType, id: number) => void
 }
 
 type ListContextProviderProps = {
@@ -40,6 +42,25 @@ export function ListContextProvider({children}: ListContextProviderProps){
     }
   }
 
+  function removeItemFromList(id: number){
+    const newList = list.filter((item, index) => index !== id)
+    setList(newList)
+  }
+
+  function markItemAsChecked(item: ItemType, id: number){
+    // const newList = list.map((item, index) =>{
+    //   if(index === id){
+    //     item.isChecked = true
+    //   }
+    //   return item
+    // })
+
+    const newList = list.filter((item, index) => index !== id)
+    const newItem = {...item, isChecked: true}
+    newList.push(newItem)
+    setList(newList)
+  }
+
 
   useEffect(() =>{
     const timeout = setTimeout(() =>{
@@ -52,7 +73,9 @@ export function ListContextProvider({children}: ListContextProviderProps){
     <ListContext.Provider value={{
       list,
       addItemToList,
-      error
+      error,
+      removeItemFromList,
+      markItemAsChecked
     }}>
       { children }
     </ListContext.Provider>

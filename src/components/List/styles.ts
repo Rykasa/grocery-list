@@ -6,7 +6,7 @@ export const Section = styled.section`
 `;
 
 export const SectionCenter = styled.div`
-  width: 95vw;
+  width: 90vw;
   margin: auto;
   max-width: 600px;
 `;
@@ -67,6 +67,15 @@ export const Button = styled.button`
   &:hover{
     color: #7667c4;
   }
+`;
+
+export const EmptyText = styled.h3`
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  margin-top: 1rem;
+  letter-spacing: .2rem;
+  color: #fff;
 `;
 
 export const ListWrap = styled.div`

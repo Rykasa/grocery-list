@@ -33,10 +33,11 @@ export function List(){
             </C.InputWrap>
           </C.Form>
         </C.SectionContent>
+        {list.length === 0 && <C.EmptyText>empty list</C.EmptyText>}
         <C.ListWrap>
           {list.map((item, index) =>{
             return(
-              <ListItem {...item} key={index} />
+              <ListItem {...item}  id={index} key={index} />
             )
           })}
         </C.ListWrap>

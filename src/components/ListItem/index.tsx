@@ -1,38 +1,42 @@
+import { useState } from 'react';
 import { FaCheckCircle, FaChevronCircleDown, FaChevronCircleUp, FaEdit, FaTimesCircle } from 'react-icons/fa'
+import { useListContext } from '../../hooks/useListContext';
 import * as C from './styles'
 
 type ListItemProps = {
   text: string;
-  isChecked: boolean
+  isChecked: boolean;
+  id: number;
 }
 
-export function ListItem({ text, isChecked }: ListItemProps){
+export function ListItem({ text, isChecked, id }: ListItemProps){
+  const { removeItemFromList, markItemAsChecked } = useListContext()
+
   return(
     <C.Article>
-      <C.ItemWrap>
+      <C.ItemWrap isChecked={isChecked}>
         <C.Text>{ text }</C.Text>
         <C.ButtonWrap>
-          <C.Button>
+          <C.CheckButton 
+            type="button"
+            onClick={() => markItemAsChecked({text, isChecked}, id)}
+            isChecked={isChecked}
+          >
             <FaCheckCircle />
-          </C.Button>
-          <C.Button>
+          </C.CheckButton>
+          <C.EditButton 
+            type="button"
+            isChecked={isChecked}
+          >
             <FaEdit />
-          </C.Button>
-          <C.Button>
+          </C.EditButton>
+          <C.DeleteButton type="button" onClick={() => removeItemFromList(id)}>
             <FaTimesCircle />
-          </C.Button>
+          </C.DeleteButton>
         </C.ButtonWrap>
         <C.AmountWrap>
-          <C.Amount>1</C.Amount>
+          <C.Amount isChecked={isChecked}>1</C.Amount>
         </C.AmountWrap>
-        {/* <C.AmountButtons>
-          <C.AmountButton>
-            <FaChevronCircleUp />
-          </C.AmountButton>
-          <C.AmountButton>
-            <FaChevronCircleDown />
-          </C.AmountButton>
-        </C.AmountButtons> */}
       </C.ItemWrap>
     </C.Article>
   )
