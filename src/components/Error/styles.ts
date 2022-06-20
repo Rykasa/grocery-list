@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const ErrorMessage = styled.div`
+export const ErrorMessage = styled.div<{ hadError: boolean }>`
   padding: .25rem 1rem;
-  background-color: #a32d26;
+  background-color: ${({ hadError }) => hadError ? '#a32d26' : 'green'} ;
   width: max-content;
   border-radius: .25rem;
   margin: auto;

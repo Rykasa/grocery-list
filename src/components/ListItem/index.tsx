@@ -1,11 +1,16 @@
 import { FaCheckCircle, FaChevronCircleDown, FaChevronCircleUp, FaEdit, FaTimesCircle } from 'react-icons/fa'
 import * as C from './styles'
 
-export function ListItem(){
+type ListItemProps = {
+  text: string;
+  isChecked: boolean
+}
+
+export function ListItem({ text, isChecked }: ListItemProps){
   return(
     <C.Article>
       <C.ItemWrap>
-        <C.Text>Orange</C.Text>
+        <C.Text>{ text }</C.Text>
         <C.ButtonWrap>
           <C.Button>
             <FaCheckCircle />

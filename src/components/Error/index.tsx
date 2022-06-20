@@ -1,7 +1,12 @@
 import { ErrorMessage } from './styles'
 
-export function Error(){
+type ErrorProps = {
+  message: string;
+  hadError: boolean;
+}
+
+export function Error({ message, hadError }: ErrorProps){
   return(
-    <ErrorMessage>Error</ErrorMessage>
+    <ErrorMessage hadError={hadError}>{ message }</ErrorMessage>
   )
 }
