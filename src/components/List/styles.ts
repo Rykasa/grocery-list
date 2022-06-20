@@ -12,21 +12,10 @@ export const SectionCenter = styled.div`
 `;
 
 export const SectionContent = styled.div`
-  background-color: aliceblue;
+  background-color: #3f3d46;
   padding: 2rem;
   border-top-left-radius: .25rem;
   border-top-right-radius: .25rem;
-`;
-
-export const ErrorMessage = styled.div`
-  text-align: center;
-  padding: .25rem 1rem;
-  background-color: #a32d26;
-  width: max-content;
-  border-radius: .25rem;
-  margin: auto;
-  color: #fff;
-  letter-spacing: .1rem;
 `;
 
 export const Form = styled.div`
@@ -37,11 +26,10 @@ export const Form = styled.div`
 `;
 
 export const Title = styled.h3`
-  margin-top: 1rem;
   font-size: 1.25rem;
   text-transform: capitalize;
   letter-spacing: .1rem;
-  color: #212121;
+  color: #fff;
 `;
 
 export const InputWrap = styled.div`
@@ -54,7 +42,8 @@ export const Input = styled.input`
   width: 100%;
   font-size: 1rem;
   padding: .5rem .75rem;
-  border-radius: .25rem;
+  border-top-left-radius: .25rem;
+  border-bottom-left-radius: .25rem;
   margin-top: 1rem;
   border: none;
   outline: none;
@@ -72,10 +61,14 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #373737;
+  color: #685aac;
   transition: all .3s linear;
 
   &:hover{
-    color: #5f5f5f;
+    color: #7667c4;
   }
+`;
+
+export const ListWrap = styled.div`
+  
 `;

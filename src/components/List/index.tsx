@@ -1,4 +1,5 @@
 import { FaPlus } from 'react-icons/fa'
+import { Error } from '../Error'
 import { ListItem } from '../ListItem'
 import * as C from './styles'
 
@@ -7,7 +8,7 @@ export function List(){
     <C.Section>
       <C.SectionCenter>
         <C.SectionContent>
-          <C.ErrorMessage>Error</C.ErrorMessage>
+          <Error />
           <C.Form>
             <C.Title>grocery list</C.Title>
             <C.InputWrap>
@@ -18,10 +19,10 @@ export function List(){
             </C.InputWrap>
           </C.Form>
         </C.SectionContent>
-        <div>
+        <C.ListWrap>
           <ListItem />
           <ListItem />
-        </div>
+        </C.ListWrap>
       </C.SectionCenter>
     </C.Section>
   )

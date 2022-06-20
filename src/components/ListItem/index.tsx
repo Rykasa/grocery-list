@@ -18,16 +18,16 @@ export function ListItem(){
           </C.Button>
         </C.ButtonWrap>
         <C.AmountWrap>
-          <C.Amount>12</C.Amount>
+          <C.Amount>1</C.Amount>
         </C.AmountWrap>
-        <C.AmountButtons>
+        {/* <C.AmountButtons>
           <C.AmountButton>
             <FaChevronCircleUp />
           </C.AmountButton>
           <C.AmountButton>
             <FaChevronCircleDown />
           </C.AmountButton>
-        </C.AmountButtons>
+        </C.AmountButtons> */}
       </C.ItemWrap>
     </C.Article>
   )

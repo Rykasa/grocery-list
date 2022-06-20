@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Article = styled.article`
-  margin: 1rem 0;
+  margin: .5rem 0;
   position: relative;
 `;
 
 export const ItemWrap = styled.div`
   padding: .5rem 1.5rem;
-  background-color: #4b4b4b;
+  background-color: #57565d;
   display: flex;
   justify-content: space-between;
 `;
@@ -55,11 +55,11 @@ export const AmountWrap = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
+//#0f0d18
 export const Amount = styled.span`
-  background-color: green;
+  background-color: #7667c4;
   border-radius: 50%;
-  padding: .25rem .25rem;
+  padding: .25rem .5rem;
   display: flex;
   justify-content: center;
   min-width: 1.5rem;
@@ -80,7 +80,7 @@ export const AmountButtons = styled.div`
 export const AmountButton = styled.button`
   background: none;
   border: none;
-  color: aqua;
+  color: #e9e6e9;
   cursor: pointer;
   font-size: 1rem;
 
