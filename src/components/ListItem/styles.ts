@@ -69,12 +69,12 @@ export const Amount = styled.span`
 
 export const AmountButtons = styled.div`
   position: absolute;
-  top: .25rem;
-  right: -.25rem;
+  top: 0rem;
+  left: -.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
 `;
 
 export const AmountButton = styled.button`
