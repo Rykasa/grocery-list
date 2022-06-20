@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const Nav = styled.nav`
   width: 100%;
-  background-color: #1644ce;
+  background-color: #1c1c1c;
   /* height: 3rem; */
   padding: 1rem 0;
+  padding-bottom: .5rem;
 `;
 
 export const NavbarCenter = styled.div`
@@ -22,7 +23,7 @@ export const NavbarTitle = styled.h3`
   font-size: 1.1rem;
 
   span{
-    color: #a32d26;
+    color: #97773b;
     font-size: 1.5rem;
     margin-left: .1rem;
   }
