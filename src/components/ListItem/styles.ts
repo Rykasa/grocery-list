@@ -12,8 +12,9 @@ export const ItemWrap = styled.div<{ isChecked: boolean }>`
   justify-content: space-between;
 `;
 
-export const Text = styled.p`
+export const Text = styled.p<{ isChecked: boolean }>`
   color: #fff;
+  text-decoration: ${({isChecked}) => isChecked ? 'line-through' : 'none'};
 `;
 
 export const ButtonWrap = styled.div`
@@ -28,7 +29,7 @@ export const Button = styled.button<{ isChecked?: boolean }>`
   border: none;
   cursor: pointer;
   display: flex;
-  font-size: 1rem;
+  font-size: 1.25rem;
   visibility: ${({isChecked}) => isChecked ? 'hidden' : 'visible'};
 
   &:hover{

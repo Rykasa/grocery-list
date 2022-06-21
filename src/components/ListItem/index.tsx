@@ -7,26 +7,27 @@ type ListItemProps = {
   text: string;
   isChecked: boolean;
   id: number;
+  amount: number;
 }
 
-export function ListItem({ text, isChecked, id }: ListItemProps){
-  const { removeItemFromList, markItemAsChecked, editItemFromList } = useListContext()
+export function ListItem({ text, isChecked, id, amount }: ListItemProps){
+  const { removeItemFromList, markItemAsChecked, openModal } = useListContext()
 
   return(
     <C.Article>
       <C.ItemWrap isChecked={isChecked}>
-        <C.Text>{ text }</C.Text>
+        <C.Text isChecked={isChecked}>{ text }</C.Text>
         <C.ButtonWrap>
           <C.CheckButton 
             type="button"
-            onClick={() => markItemAsChecked({text, isChecked}, id)}
+            onClick={() => markItemAsChecked({text, isChecked, amount}, id)}
             isChecked={isChecked}
           >
             <FaCheckCircle />
           </C.CheckButton>
           <C.EditButton 
             type="button"
-            onClick={editItemFromList}
+            onClick={() => openModal({ text, isChecked, amount }, id)}                  
             isChecked={isChecked}
           >
             <FaEdit />
@@ -36,7 +37,7 @@ export function ListItem({ text, isChecked, id }: ListItemProps){
           </C.DeleteButton>
         </C.ButtonWrap>
         <C.AmountWrap>
-          <C.Amount isChecked={isChecked}>1</C.Amount>
+          <C.Amount isChecked={isChecked}>{ amount }</C.Amount>
         </C.AmountWrap>
       </C.ItemWrap>
     </C.Article>

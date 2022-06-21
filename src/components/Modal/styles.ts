@@ -17,8 +17,26 @@ export const ModalCenter = styled.div`
   background-color: #fff;
   border-radius: .25rem;
   padding: 2rem 1rem;
+  padding-top: 4rem;
   max-width: 600px;
   margin: auto;
+  position: relative;
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  cursor: pointer;
+  color: #a32d26;
+  transition: all .3s linear;
+
+  &:hover{
+    color: #b55751;
+  }
 `;
 
 export const InputWrapper = styled.div`
@@ -34,7 +52,7 @@ export const Label = styled.label`
 export const Title = styled.span`
   display: flex;
   background-color: #7667c4;
-  padding: .25rem;
+  padding: .25rem .5rem;
   border-radius: 0;
   letter-spacing: .1rem;
   text-transform: capitalize;
