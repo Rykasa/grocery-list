@@ -29,11 +29,23 @@ type Error = {
 export const ListContext = createContext({} as ListContextData)
 
 export function ListContextProvider({children}: ListContextProviderProps){
-  const [list, setList] = useState<ItemType[]>([])
+  const [list, setList] = useState<ItemType[]>(getLocalData())
   const [error, setError] = useState<Error>({ message: '', isvisible: false, hadError: false })
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [singleItem, setSingleItem] = useState<ItemType>({ text: '', isChecked: false, amount: 1 })
   const [itemID, setItemID] = useState(0)
+
+  function getLocalData(){
+    const storage = localStorage.getItem('list')
+    if(typeof storage === 'string'){
+      const listStorage = JSON.parse(storage)
+      return listStorage
+    }
+  }
+
+  useEffect(() =>{
+    localStorage.setItem('list', JSON.stringify(list))
+  }, [list])
 
   function addItemToList(text: string, isChecked?: boolean, amount=1){
     if(text.trim() !== ''){
