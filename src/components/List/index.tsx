@@ -18,7 +18,7 @@ export function List(){
     <C.Section>
       <C.SectionCenter>
         <C.SectionContent>
-          { error.isvisible && <Error {...error} /> } 
+          { error?.isvisible && <Error {...error} /> } 
           <C.Form onSubmit={handleSubmit}>
             <C.Title>grocery list</C.Title>
             <C.InputWrap>
@@ -36,7 +36,7 @@ export function List(){
         </C.SectionContent>
         {list?.length === 0 ? (<C.EmptyText>empty list</C.EmptyText>) : (
           <C.ListWrap>
-            {list.map((item, index) =>{
+            {list?.map((item, index) =>{
               return(
                 <ListItem {...item}  id={index} key={index} />
               )
