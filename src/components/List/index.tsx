@@ -7,7 +7,7 @@ import { Modal } from '../Modal'
 import * as C from './styles'
 
 export function List(){
-  const { list, addItemToList, error, isModalOpen } = useListContext()
+  const { list, addItemToList, error, isModalOpen, clearList } = useListContext()
   const [text, setText] = useState('')
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) =>{
@@ -34,14 +34,20 @@ export function List(){
             </C.InputWrap>
           </C.Form>
         </C.SectionContent>
-        {list.length === 0 && <C.EmptyText>empty list</C.EmptyText>}
-        <C.ListWrap>
-          {list.map((item, index) =>{
-            return(
-              <ListItem {...item}  id={index} key={index} />
-            )
-          })}
-        </C.ListWrap>
+        {list.length === 0 ? (<C.EmptyText>empty list</C.EmptyText>) : (
+          <C.ListWrap>
+            {list.map((item, index) =>{
+              return(
+                <ListItem {...item}  id={index} key={index} />
+              )
+            })}
+            <C.ClearButton
+              type="button"
+              onClick={clearList}
+            >
+              Clear List</C.ClearButton>
+          </C.ListWrap>
+        )}
       </C.SectionCenter>
       { isModalOpen && <Modal /> }
     </C.Section>

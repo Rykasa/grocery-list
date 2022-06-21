@@ -13,6 +13,7 @@ type ListContextData = {
   editItemFromList: (item: ItemType, id: number) => void
   openModal: (item: ItemType, id: number) => void
   closeModal: () => void
+  clearList: () => void
 }
 
 type ListContextProviderProps = {
@@ -102,6 +103,10 @@ export function ListContextProvider({children}: ListContextProviderProps){
     setIsModalOpen(false)
   }
 
+  function clearList(){
+    setList([])
+  }
+
   useEffect(() =>{
     const timeout = setTimeout(() =>{
       setError({ message: '', isvisible: false, hadError: false })
@@ -121,7 +126,8 @@ export function ListContextProvider({children}: ListContextProviderProps){
       closeModal,
       singleItem,
       openModal,
-      itemID
+      itemID,
+      clearList
     }}>
       { children }
     </ListContext.Provider>

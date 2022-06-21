@@ -79,5 +79,27 @@ export const EmptyText = styled.h3`
 `;
 
 export const ListWrap = styled.div`
-  
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ClearButton = styled.button`
+  width: max-content;
+  align-self: center;
+  margin-top: .5rem;
+  padding: .25rem 1rem;
+  background: #685aac;
+  border: none;
+  border-radius: .25rem;
+  font-size: 1rem;
+  color: #fff;
+  letter-spacing: .1rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all .3s linear;
+
+  &:hover{
+    background-color: #7667c4;
+  }
 `;
