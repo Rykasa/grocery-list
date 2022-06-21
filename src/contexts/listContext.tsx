@@ -49,15 +49,25 @@ export function ListContextProvider({children}: ListContextProviderProps){
 
   function addItemToList(text: string, isChecked?: boolean, amount=1){
     if(text.trim() !== ''){
-      const newList = [...list]
-      const newItem = {text, isChecked: false, amount}
-      newList.unshift(newItem)
-      setList(newList)
-      setError({
-        message: 'Item added',
-        isvisible: true,
-        hadError: false
-      })
+      const duplicateValue = list.find((item) => item.text === text)
+      if(!duplicateValue){
+        console.log(duplicateValue)
+        const newList = [...list]
+        const newItem = {text, isChecked: false, amount}
+        newList.unshift(newItem)
+        setList(newList)
+        setError({
+          message: 'Item added',
+          isvisible: true,
+          hadError: false
+        })
+      }else{
+        setError({
+          message: 'Item already exists',
+          isvisible: true,
+          hadError: true
+        })
+      }
     }else{
       setError({
         message: 'Empty value',

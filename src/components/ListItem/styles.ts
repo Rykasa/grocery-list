@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Article = styled.article`
-  margin: .5rem 0;
+  margin: .25rem 0;
   position: relative;
 `;
 

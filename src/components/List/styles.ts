@@ -79,6 +79,7 @@ export const EmptyText = styled.h3`
 `;
 
 export const ListWrap = styled.div`
+  margin-top: .5rem;
   display: flex;
   flex-direction: column;
 `;
