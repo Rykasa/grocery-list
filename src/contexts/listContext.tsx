@@ -38,8 +38,12 @@ export function ListContextProvider({children}: ListContextProviderProps){
   function getLocalData(){
     const storage = localStorage.getItem('list')
     if(typeof storage === 'string'){
-      const listStorage = JSON.parse(storage)
-      return listStorage
+      if(storage){
+        const listStorage = JSON.parse(storage)
+        return listStorage
+      }
+    }else{
+      return []
     }
   }
 
@@ -51,7 +55,6 @@ export function ListContextProvider({children}: ListContextProviderProps){
     if(text.trim() !== ''){
       const duplicateValue = list.find((item) => item.text === text)
       if(!duplicateValue){
-        console.log(duplicateValue)
         const newList = [...list]
         const newItem = {text, isChecked: false, amount}
         newList.unshift(newItem)
